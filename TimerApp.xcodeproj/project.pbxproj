@@ -11,11 +11,12 @@
 		378DB8DE2B382B9900720E30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8DD2B382B9900720E30 /* ContentView.swift */; };
 		378DB8E02B382B9A00720E30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DB8DF2B382B9A00720E30 /* Assets.xcassets */; };
 		378DB8E32B382B9A00720E30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DB8E22B382B9A00720E30 /* Preview Assets.xcassets */; };
-		378DB8E52B382B9A00720E30 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8E42B382B9A00720E30 /* Persistence.swift */; };
 		378DB8E82B382B9A00720E30 /* TimerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8E62B382B9A00720E30 /* TimerApp.xcdatamodeld */; };
 		378DB8F42B382B9A00720E30 /* TimerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8F32B382B9A00720E30 /* TimerAppTests.swift */; };
 		378DB8FE2B382B9A00720E30 /* TimerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8FD2B382B9A00720E30 /* TimerAppUITests.swift */; };
 		378DB9002B382B9A00720E30 /* TimerAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8FF2B382B9A00720E30 /* TimerAppUITestsLaunchTests.swift */; };
+		378DB90F2B395B5200720E30 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB90E2B395B5200720E30 /* TimerViewModel.swift */; };
+		378DB9122B39882B00720E30 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB9112B39882B00720E30 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,6 @@
 		378DB8DD2B382B9900720E30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		378DB8DF2B382B9A00720E30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378DB8E22B382B9A00720E30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		378DB8E42B382B9A00720E30 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		378DB8E72B382B9A00720E30 /* TimerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimerApp.xcdatamodel; sourceTree = "<group>"; };
 		378DB8E92B382B9A00720E30 /* TimerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimerApp.entitlements; sourceTree = "<group>"; };
 		378DB8EA2B382B9A00720E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		378DB8F92B382B9A00720E30 /* TimerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		378DB8FD2B382B9A00720E30 /* TimerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAppUITests.swift; sourceTree = "<group>"; };
 		378DB8FF2B382B9A00720E30 /* TimerAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		378DB90E2B395B5200720E30 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		378DB9112B39882B00720E30 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,14 +102,15 @@
 		378DB8DA2B382B9900720E30 /* TimerApp */ = {
 			isa = PBXGroup;
 			children = (
+				378DB9102B39882300720E30 /* subViews */,
 				378DB8DB2B382B9900720E30 /* TimerAppApp.swift */,
 				378DB8DD2B382B9900720E30 /* ContentView.swift */,
 				378DB8DF2B382B9A00720E30 /* Assets.xcassets */,
-				378DB8E42B382B9A00720E30 /* Persistence.swift */,
 				378DB8E92B382B9A00720E30 /* TimerApp.entitlements */,
 				378DB8EA2B382B9A00720E30 /* Info.plist */,
 				378DB8E62B382B9A00720E30 /* TimerApp.xcdatamodeld */,
 				378DB8E12B382B9A00720E30 /* Preview Content */,
+				378DB90E2B395B5200720E30 /* TimerViewModel.swift */,
 			);
 			path = TimerApp;
 			sourceTree = "<group>";
@@ -135,6 +138,14 @@
 				378DB8FF2B382B9A00720E30 /* TimerAppUITestsLaunchTests.swift */,
 			);
 			path = TimerAppUITests;
+			sourceTree = "<group>";
+		};
+		378DB9102B39882300720E30 /* subViews */ = {
+			isa = PBXGroup;
+			children = (
+				378DB9112B39882B00720E30 /* TimerView.swift */,
+			);
+			path = subViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378DB8E52B382B9A00720E30 /* Persistence.swift in Sources */,
+				378DB9122B39882B00720E30 /* TimerView.swift in Sources */,
 				378DB8DE2B382B9900720E30 /* ContentView.swift in Sources */,
 				378DB8DC2B382B9900720E30 /* TimerAppApp.swift in Sources */,
+				378DB90F2B395B5200720E30 /* TimerViewModel.swift in Sources */,
 				378DB8E82B382B9A00720E30 /* TimerApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +456,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +488,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
