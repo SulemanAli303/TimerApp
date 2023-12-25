@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  TimerApp
 //
 //  Created by Suleman Ali on 24/12/2023.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     @ObservedObject var viewModel: TimerViewModel
+    @Environment(\.scenePhase) var scene
     init(viewModel: TimerViewModel) {
         self.viewModel = viewModel
     }
@@ -16,13 +17,18 @@ struct ContentView: View {
             VStack {
                 Text("Timer App").font(.largeTitle)
                 Spacer()
-                TimerView(progress: viewModel.progress)
+                TimerView(progress: viewModel.progress,totalProgress: viewModel.totalTime)
                     .padding()
                     .frame(width: 300, height: 300)
                 HStack{
                     // MARK: - Start and Pause Button
                     Button(action: {
+
+
                         viewModel.isTimerStarted.toggle()
+                        if viewModel.isTimerStarted  && viewModel.selectedTime == viewModel.totalTime {
+                            viewModel.startFromZero()
+                        }
                     }) {
                         Text(viewModel.isTimerStarted ? "Pause" : "Start")
                             .padding(.horizontal, 20)
@@ -70,29 +76,32 @@ struct ContentView: View {
                     .padding()
                 }
                 Spacer()
-            }
-            .onReceive(Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()) { (_) in
-                if viewModel.selectedTime > 0 && viewModel.isTimerStarted {
-                    viewModel.selectedTime -= 0.01
-                    if viewModel.selectedTime < 0 {
-                        viewModel.selectedTime = 0
-                    }
-                    withAnimation(.default) {
-                        viewModel.progress = viewModel.selectedTime
-                    }
-                    if viewModel.selectedTime == 0 {
-                        viewModel.resetView()
-                    }
+            }.onReceive(viewModel.$isCompleted){
+                if $0 && scene == .background {
+                    self.addNotifications()
                 }
             }
             .onAppear {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { (_, _) in
                 }
                 UNUserNotificationCenter.current().delegate = viewModel
+            }
+    }
+
+    private  func addNotifications() {
+        let content = UNMutableNotificationContent()
+        content.title = "Notification from Timer App"
+        content.body = "Timer is finished!"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.001, repeats: false)
+        let request = UNNotificationRequest(identifier: "TIMER", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { err in
+            if err != nil {
+                print(err!.localizedDescription)
+            }
         }
     }
 }
 
 #Preview {
-    ContentView(viewModel: TimerViewModel())
+    HomeView(viewModel: TimerViewModel(time: 10))
 }

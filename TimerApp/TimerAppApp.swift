@@ -9,31 +9,13 @@ import SwiftUI
 
 @main
 struct TimerAppApp: App {
-    @StateObject var viewModel = TimerViewModel()
+    @StateObject var viewModel = TimerViewModel(time: 10)
     @Environment(\.scenePhase) var scene
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel)
+            HomeView(viewModel: viewModel)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                }.onChange(of: scene) { newScene in
-                    if newScene == .background {
-                        viewModel.leftTime = Date()
-                        addNotifications()
-                    }
-                    if newScene == .active && viewModel.leftTime != nil {
-
-                        let diff = Date().timeIntervalSince(viewModel.leftTime)
-                        let currentTime = viewModel.selectedTime - diff
-                        if currentTime >= 0 {
-                            removeNotification()
-                            withAnimation(.default) {
-                                viewModel.selectedTime = currentTime
-                            }
-                        } else {
-                            viewModel.resetView()
-                        }
-                    }
                 }
         }
     }
@@ -42,7 +24,7 @@ struct TimerAppApp: App {
         let content = UNMutableNotificationContent()
         content.title = "Notification from Timer App"
         content.body = "Timer is finished!"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(viewModel.selectedTime), repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0, repeats: false)
         let request = UNNotificationRequest(identifier: "TIMER", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { err in

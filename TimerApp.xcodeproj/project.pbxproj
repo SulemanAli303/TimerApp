@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		378DB8DC2B382B9900720E30 /* TimerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8DB2B382B9900720E30 /* TimerAppApp.swift */; };
-		378DB8DE2B382B9900720E30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8DD2B382B9900720E30 /* ContentView.swift */; };
+		378DB8DE2B382B9900720E30 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8DD2B382B9900720E30 /* HomeView.swift */; };
 		378DB8E02B382B9A00720E30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DB8DF2B382B9A00720E30 /* Assets.xcassets */; };
 		378DB8E32B382B9A00720E30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DB8E22B382B9A00720E30 /* Preview Assets.xcassets */; };
 		378DB8E82B382B9A00720E30 /* TimerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 378DB8E62B382B9A00720E30 /* TimerApp.xcdatamodeld */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		378DB8D82B382B9900720E30 /* TimerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378DB8DB2B382B9900720E30 /* TimerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAppApp.swift; sourceTree = "<group>"; };
-		378DB8DD2B382B9900720E30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		378DB8DD2B382B9900720E30 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		378DB8DF2B382B9A00720E30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378DB8E22B382B9A00720E30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		378DB8E72B382B9A00720E30 /* TimerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimerApp.xcdatamodel; sourceTree = "<group>"; };
@@ -102,15 +102,14 @@
 		378DB8DA2B382B9900720E30 /* TimerApp */ = {
 			isa = PBXGroup;
 			children = (
-				378DB9102B39882300720E30 /* subViews */,
+				378DB9132B39D3F300720E30 /* ViewModels */,
+				378DB9102B39882300720E30 /* Views */,
 				378DB8DB2B382B9900720E30 /* TimerAppApp.swift */,
-				378DB8DD2B382B9900720E30 /* ContentView.swift */,
 				378DB8DF2B382B9A00720E30 /* Assets.xcassets */,
 				378DB8E92B382B9A00720E30 /* TimerApp.entitlements */,
 				378DB8EA2B382B9A00720E30 /* Info.plist */,
 				378DB8E62B382B9A00720E30 /* TimerApp.xcdatamodeld */,
 				378DB8E12B382B9A00720E30 /* Preview Content */,
-				378DB90E2B395B5200720E30 /* TimerViewModel.swift */,
 			);
 			path = TimerApp;
 			sourceTree = "<group>";
@@ -140,12 +139,21 @@
 			path = TimerAppUITests;
 			sourceTree = "<group>";
 		};
-		378DB9102B39882300720E30 /* subViews */ = {
+		378DB9102B39882300720E30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				378DB8DD2B382B9900720E30 /* HomeView.swift */,
 				378DB9112B39882B00720E30 /* TimerView.swift */,
 			);
-			path = subViews;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		378DB9132B39D3F300720E30 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				378DB90E2B395B5200720E30 /* TimerViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				378DB9122B39882B00720E30 /* TimerView.swift in Sources */,
-				378DB8DE2B382B9900720E30 /* ContentView.swift in Sources */,
+				378DB8DE2B382B9900720E30 /* HomeView.swift in Sources */,
 				378DB8DC2B382B9900720E30 /* TimerAppApp.swift in Sources */,
 				378DB90F2B395B5200720E30 /* TimerViewModel.swift in Sources */,
 				378DB8E82B382B9A00720E30 /* TimerApp.xcdatamodeld in Sources */,
@@ -447,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimerApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 6NRUJ9KXDL;
+				DEVELOPMENT_TEAM = 885SF36G6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimerApp/Info.plist;
@@ -479,7 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimerApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 6NRUJ9KXDL;
+				DEVELOPMENT_TEAM = 885SF36G6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimerApp/Info.plist;
