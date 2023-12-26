@@ -79,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		373569C32B3B4F3B00041045 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				378DB9112B39882B00720E30 /* TimerView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		378DB8CF2B382B9900720E30 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +110,7 @@
 		378DB8DA2B382B9900720E30 /* TimerApp */ = {
 			isa = PBXGroup;
 			children = (
+				373569C32B3B4F3B00041045 /* Components */,
 				378DB9132B39D3F300720E30 /* ViewModels */,
 				378DB9102B39882300720E30 /* Views */,
 				378DB8DB2B382B9900720E30 /* TimerAppApp.swift */,
@@ -143,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				378DB8DD2B382B9900720E30 /* HomeView.swift */,
-				378DB9112B39882B00720E30 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

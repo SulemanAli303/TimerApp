@@ -23,8 +23,6 @@ struct HomeView: View {
                 HStack{
                     // MARK: - Start and Pause Button
                     Button(action: {
-
-
                         viewModel.isTimerStarted.toggle()
                         if viewModel.isTimerStarted  && viewModel.selectedTime == viewModel.totalTime {
                             viewModel.startFromZero()
