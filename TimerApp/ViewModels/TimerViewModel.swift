@@ -60,6 +60,7 @@ class TimerViewModel: NSObject, UNUserNotificationCenterDelegate, ObservableObje
     }
 
     func resetView() {
+        UIApplication.shared.isIdleTimerDisabled = true
         withAnimation(.easeIn) {
             timer?.invalidate()
             progress = totalTime

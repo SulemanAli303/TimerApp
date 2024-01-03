@@ -25,6 +25,7 @@ struct HomeView: View {
                     Button(action: {
                         viewModel.isTimerStarted.toggle()
                         if viewModel.isTimerStarted  && viewModel.selectedTime == viewModel.totalTime {
+                            UIApplication.shared.isIdleTimerDisabled = true
                             viewModel.startFromZero()
                         }
                     }) {
